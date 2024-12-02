@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:screens/screens/home.dart';
+import 'package:screens/screens/porfile.dart';
 
 void main() {
   runApp(MyApp());
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
               color: colorScheme.onPrimaryContainer,
             ),
           )),
-      home: const Home(),
+      home: const Porfile(),
     );
   }
 }
