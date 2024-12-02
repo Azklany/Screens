@@ -5,91 +5,94 @@ class Porfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-          appBar: AppBar(
-            leading: IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.arrow_back, color: Colors.black)),
-            title: const Text("My Porfile"),
-            actions: [
-              IconButton(
+    return ListView(children: [
+      SafeArea(
+        child: Scaffold(
+            appBar: AppBar(
+              leading: IconButton(
                   onPressed: () {},
-                  icon: const Icon(
-                    Icons.settings,
-                    color: Colors.black,
-                  ))
-            ],
-          ),
-          body: Column(
-            children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20, left: 35),
-                    child: Container(
-                      decoration:
-                          BoxDecoration(shape: BoxShape.circle, boxShadow: [
-                        BoxShadow(
-                            color: Colors.black.withOpacity(0.5),
-                            blurRadius: 10,
-                            spreadRadius: 2,
-                            offset: const Offset(3, 3))
-                      ]),
-                      child: const CircleAvatar(
-                        radius: 50,
-                        backgroundImage: AssetImage('assets/logo.png'),
+                  icon: const Icon(Icons.arrow_back, color: Colors.black)),
+              title: const Text("My Porfile"),
+              actions: [
+                IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.settings,
+                      color: Colors.black,
+                    ))
+              ],
+            ),
+            body: Column(
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 20, left: 35),
+                      child: Container(
+                        decoration:
+                            BoxDecoration(shape: BoxShape.circle, boxShadow: [
+                          BoxShadow(
+                              color: Colors.black.withOpacity(0.5),
+                              blurRadius: 10,
+                              spreadRadius: 2,
+                              offset: const Offset(3, 3))
+                        ]),
+                        child: const CircleAvatar(
+                          radius: 50,
+                          backgroundImage: AssetImage('assets/logo.png'),
+                        ),
                       ),
                     ),
-                  ),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(top: 40),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "SkyLine Team",
-                          style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        Text(
-                          "Mobile Developer",
-                          style: TextStyle(
-                              fontSize: 12,
-                              color: Color.fromARGB(255, 134, 152, 206)),
-                        ),
-                      ],
+                    const SizedBox(
+                      width: 20,
                     ),
-                  )
-                ],
-              ),
-              const SizedBox(
-                height: 40,
-              ),
-              const MyWidget(icon: Icons.person_2_outlined, text: "About Me"),
-              const MyWidget(icon: Icons.fact_check, text: "Projects"),
-              const MyWidget(icon: Icons.create, text: "Skill"),
-              const Divider(
-                color: Colors.grey,
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              const MyWidget(
-                  icon: Icons.contact_emergency, text: "Contact Information"),
-              const MyWidget(icon: Icons.notifications, text: "Notification"),
-              const MyWidget(icon: Icons.privacy_tip_rounded, text: "Privacy"),
-              const MyWidget(icon: Icons.help, text: "Help"),
-            ],
-          )),
-    );
+                    const Padding(
+                      padding: EdgeInsets.only(top: 40),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "SkyLine Team",
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            "Mobile Developer",
+                            style: TextStyle(
+                                fontSize: 12,
+                                color: Color.fromARGB(255, 134, 152, 206)),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+                const SizedBox(
+                  height: 40,
+                ),
+                const MyWidget(icon: Icons.person_2_outlined, text: "About Me"),
+                const MyWidget(icon: Icons.fact_check, text: "Projects"),
+                const MyWidget(icon: Icons.create, text: "Skill"),
+                const Divider(
+                  color: Colors.grey,
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                const MyWidget(
+                    icon: Icons.contact_emergency, text: "Contact Information"),
+                const MyWidget(icon: Icons.notifications, text: "Notification"),
+                const MyWidget(
+                    icon: Icons.privacy_tip_rounded, text: "Privacy"),
+                const MyWidget(icon: Icons.help, text: "Help"),
+              ],
+            )),
+      ),
+    ]);
   }
 }
 
