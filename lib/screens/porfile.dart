@@ -5,24 +5,24 @@ class Porfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(children: [
-      SafeArea(
-        child: Scaffold(
-            appBar: AppBar(
-              leading: IconButton(
+    return SafeArea(
+      child: Scaffold(
+          appBar: AppBar(
+            leading: IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.arrow_back, color: Colors.black)),
+            title: const Text("My Porfile"),
+            actions: [
+              IconButton(
                   onPressed: () {},
-                  icon: const Icon(Icons.arrow_back, color: Colors.black)),
-              title: const Text("My Porfile"),
-              actions: [
-                IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.settings,
-                      color: Colors.black,
-                    ))
-              ],
-            ),
-            body: Column(
+                  icon: const Icon(
+                    Icons.settings,
+                    color: Colors.black,
+                  ))
+            ],
+          ),
+          body: SingleChildScrollView(
+            child: Column(
               children: [
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -88,11 +88,10 @@ class Porfile extends StatelessWidget {
                 const MyWidget(icon: Icons.notifications, text: "Notification"),
                 const MyWidget(
                     icon: Icons.privacy_tip_rounded, text: "Privacy"),
-                const MyWidget(icon: Icons.help, text: "Help"),
               ],
-            )),
-      ),
-    ]);
+            ),
+          )),
+    );
   }
 }
 
