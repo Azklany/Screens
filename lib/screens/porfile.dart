@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:screens/screens/home.dart';
+import 'package:screens/screens/login.dart';
 
 class Porfile extends StatelessWidget {
   const Porfile({super.key});
@@ -9,14 +11,20 @@ class Porfile extends StatelessWidget {
       child: Scaffold(
           appBar: AppBar(
             leading: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => const Home()));
+                },
                 icon: const Icon(Icons.arrow_back, color: Colors.black)),
             title: const Text("My Porfile"),
             actions: [
               IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => const Login()));
+                  },
                   icon: const Icon(
-                    Icons.settings,
+                    Icons.output_outlined,
                     color: Colors.black,
                   ))
             ],

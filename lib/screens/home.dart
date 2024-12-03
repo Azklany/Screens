@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:screens/screens/porfile.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -38,7 +39,10 @@ class _HomeState extends State<Home> {
         appBar: AppBar(
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => const Porfile()));
+              },
               icon: const Icon(
                 Icons.person,
                 color: Colors.white,

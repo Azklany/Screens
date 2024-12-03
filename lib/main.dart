@@ -16,10 +16,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
       theme: ThemeData().copyWith(
           colorScheme: colorScheme,
-          useMaterial3: true,
           appBarTheme: const AppBarTheme().copyWith(
               backgroundColor: colorScheme.primary,
               titleTextStyle: const TextStyle(
