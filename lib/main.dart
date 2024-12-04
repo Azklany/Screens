@@ -7,11 +7,11 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  MyApp({super.key});
-
   final ColorScheme colorScheme =
       ColorScheme.fromSeed(seedColor: Colors.deepPurple);
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,6 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData().copyWith(
           colorScheme: colorScheme,
-          useMaterial3: true,
           appBarTheme: const AppBarTheme().copyWith(
               backgroundColor: colorScheme.primary,
               titleTextStyle: const TextStyle(
