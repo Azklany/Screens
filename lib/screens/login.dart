@@ -37,7 +37,7 @@ class Login extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            Container(
+            SizedBox(
               width: 150,
               height: 50,
               child: ElevatedButton(
