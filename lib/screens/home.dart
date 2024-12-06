@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:screens/screens/porfile.dart';
 
@@ -36,6 +35,17 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        drawer: const Drawer(),
+        bottomNavigationBar: BottomNavigationBar(items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: 'Search'
+          ),
+        ]),
         appBar: AppBar(
           actions: [
             IconButton(
