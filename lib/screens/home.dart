@@ -1,6 +1,7 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:screens/screens/porfile.dart';
+import 'package:screens/widgets/home_animation.dart';
+import 'package:screens/widgets/search.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -10,74 +11,53 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  double width = 200;
-  double height = 200;
-  late Timer timer;
-  bool isExpanded = true;
-
-  @override
-  void initState() {
-    timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      setState(() {
-        isExpanded = !isExpanded;
-      });
-    });
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    timer.cancel();
-    super.dispose();
-  }
+  Widget content = const HomeAnimation();
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        drawer: const Drawer(),
-        bottomNavigationBar: BottomNavigationBar(items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search'
-          ),
-        ]),
-        appBar: AppBar(
-          actions: [
-            IconButton(
-              onPressed: () {
-                Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => const Porfile()));
+          drawer: const Drawer(),
+          bottomNavigationBar: BottomNavigationBar(
+              currentIndex: currentIndex,
+              onTap: (index) {
+                if (index == 0) {
+                  setState(() {
+                    content = const HomeAnimation();
+                    currentIndex = index;
+                  });
+                } else {
+                  setState(() {
+                    currentIndex = index;
+                    content = const Search();
+                  });
+                }
               },
-              icon: const Icon(
-                Icons.person,
-                color: Colors.white,
-              ),
-            ),
-          ],
-          title: const Text('Home'),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text("Welcome to my Flutter app",
-                  style: TextStyle(fontSize: 25)),
-              const SizedBox(height: 20),
-              AnimatedContainer(
-                width: isExpanded ? 100 : 200,
-                height: isExpanded ? 100 : 200,
-                duration: const Duration(seconds: 1),
-                child: const FlutterLogo(),
+              items: const [
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.home),
+                  label: 'Home',
+                ),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.search), label: 'Search'),
+              ]),
+          appBar: AppBar(
+            actions: [
+              IconButton(
+                onPressed: () {
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => const Porfile()));
+                },
+                icon: const Icon(
+                  Icons.person,
+                  color: Colors.white,
+                ),
               ),
             ],
+            title: const Text('Home'),
           ),
-        ),
-      ),
+          body: content),
     );
   }
 }

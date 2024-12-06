@@ -17,24 +17,30 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData().copyWith(
-          colorScheme: colorScheme,
-          appBarTheme: const AppBarTheme().copyWith(
-              backgroundColor: colorScheme.primary,
-              titleTextStyle: const TextStyle(
-                fontSize: 25,
-                color: Colors.white,
-              )),
-          scaffoldBackgroundColor: colorScheme.primaryContainer,
-          textTheme: const TextTheme().copyWith(
-            bodyMedium: TextStyle(
-              color: colorScheme.onPrimaryContainer,
-            ),
-          ),
-          bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        colorScheme: colorScheme,
+        appBarTheme: const AppBarTheme().copyWith(
+            foregroundColor: colorScheme.onSecondary,
             backgroundColor: colorScheme.primary,
-            selectedItemColor: colorScheme.onSecondary,
-            unselectedItemColor: colorScheme.onSecondary.withOpacity(0.5),
-          )),
+            titleTextStyle: const TextStyle(
+              fontSize: 25,
+              color: Colors.white,
+            )),
+        scaffoldBackgroundColor: colorScheme.primaryContainer,
+        textTheme: const TextTheme().copyWith(
+          bodyMedium: TextStyle(
+            color: colorScheme.onPrimaryContainer,
+          ),
+        ),
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData().copyWith(
+          backgroundColor: colorScheme.primary,
+          selectedItemColor: colorScheme.onSecondary,
+          unselectedItemColor: colorScheme.onSecondary.withOpacity(0.5),
+        ),
+        drawerTheme: const DrawerThemeData().copyWith(
+          backgroundColor: colorScheme.primaryContainer,
+          scrimColor: colorScheme.onPrimaryContainer.withOpacity(0.5),
+        ),
+      ),
       home: const Login(),
     );
   }
